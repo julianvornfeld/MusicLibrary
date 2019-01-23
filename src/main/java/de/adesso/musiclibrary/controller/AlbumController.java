@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.StreamSupport;
 
 @Controller
 public class AlbumController {
@@ -26,7 +27,10 @@ public class AlbumController {
 
     @RequestMapping(value = { "/albums" }, method = RequestMethod.GET)
     public String viewPersonList(Model model) {
+        Iterable<Artist> artists = artistRepository.findAll();
         Iterable<Album> albums = albumRepository.findAll();
+
+        model.addAttribute("artists", artists);
         model.addAttribute("albums", albums);
 
         return "albums";
@@ -66,6 +70,23 @@ public class AlbumController {
         }
         return "redirect:/albums";
 
+    }
+    @RequestMapping(value = { "/albums/filter" }, method = RequestMethod.GET)
+    public String GetFilterAlbum(Model model, @RequestParam Long artistId) {
+
+        Iterable<Artist> artists = artistRepository.findAll();
+
+        Artist artist = StreamSupport.stream(artists.spliterator(), false)
+                .filter(artist1 -> artist1.getId().equals(artistId))
+                .findFirst().get();
+
+        Iterable<Album> albums = albumRepository.findByArtist(artist);
+
+        model.addAttribute("artists", artists);
+        model.addAttribute("albums", albums);
+        model.addAttribute("filter", artistId);
+
+        return "albums";
     }
 
 }
