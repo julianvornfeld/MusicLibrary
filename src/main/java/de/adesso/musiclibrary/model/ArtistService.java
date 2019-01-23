@@ -13,7 +13,7 @@ public class ArtistService {
     @Autowired
     private ArtistRepository artistRepository;
 
-    private List<Genre> getGenreList (List<Long> genreIds) {
+    private List<Genre> getGenreListFromIds (List<Long> genreIds) {
         List<Genre> genres = new ArrayList<>();
 
         genreIds.stream().forEach(genreId -> {
@@ -25,19 +25,20 @@ public class ArtistService {
         return genres;
     }
 
-    public void createArtist (String name, int founded, List<Long> genreIds) {
+    public Artist createArtist (String name, int founded, List<Long> genreIds) {
 
 
-        Artist artist = new Artist(name, founded, getGenreList(genreIds));
+        Artist artist = new Artist(name, founded, getGenreListFromIds(genreIds));
         artistRepository.save(artist);
 
+        return artist;
     }
 
     public void updateArtist (Long artistId, String name, int founded, List<Long> genreIds) {
             artistRepository.findById(artistId).ifPresent(artist -> {
                 artist.setName(name);
                 artist.setFounded(founded);
-                artist.setGenre(getGenreList(genreIds));
+                artist.setGenre(getGenreListFromIds(genreIds));
                 artistRepository.save(artist);
             });
     }

@@ -41,7 +41,7 @@ public class ArtistsController {
     }
 
     @RequestMapping(value = "/artists/{id}", method = RequestMethod.GET)
-    public String getEditGenre(@PathVariable("id") Long id, Model model){
+    public String getEditAlbum(@PathVariable("id") Long id, Model model){
         Optional<Artist> artist = artistRepository.findById(id);
         Iterable<Genre> genres = genreRepository.findAll();
 
@@ -56,7 +56,6 @@ public class ArtistsController {
     public String postCreateArtist(Model model, @RequestParam Long artistId, @RequestParam String name, @RequestParam int founded, @RequestParam List<Long> genreIds, @RequestParam String mode) {
 
         mode = mode.toLowerCase();
-        System.out.println(genreIds.toString());
         if (mode.equals("new")) {
             artistService.createArtist(name, founded, genreIds);
         } else if (mode.equals("edit")) {

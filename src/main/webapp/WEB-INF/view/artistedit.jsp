@@ -12,6 +12,9 @@
     <title>${mode} Artist ${artist.name}</title>
 </head>
 <body>
+<h1>${mode} Artist ${artist.name}</h1>
+
+<br/><br/>
 
 <form action="/artists/edit" class="js-example-basic-multiple" method="POST">
     <br>
