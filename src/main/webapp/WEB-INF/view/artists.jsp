@@ -21,7 +21,11 @@
             <tr>
                 <td> <a href="/artists/${artists.id}">${artists.name}</a></td>
                 <td>${artists.founded}</td>
-                <td> <a href="/genres/${artists.genre.id}">${artists.genre.name}</a></td>
+                <td>
+                    <c:forEach  items="${artists.genre}" var ="genre">
+                        <a href="/genres/${genre.id}">${genre.name}</a>
+                    </c:forEach>
+                </td>
             </tr>
         </c:forEach>
     </table>

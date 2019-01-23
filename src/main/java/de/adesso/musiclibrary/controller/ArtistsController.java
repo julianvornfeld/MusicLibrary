@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -52,14 +53,14 @@ public class ArtistsController {
     }
 
     @RequestMapping(value = { "/artists/edit" }, method = RequestMethod.POST)
-    public String postCreateArtist(Model model, @RequestParam Long artistId, @RequestParam String name, @RequestParam int founded, @RequestParam Long genreId, @RequestParam String mode) {
+    public String postCreateArtist(Model model, @RequestParam Long artistId, @RequestParam String name, @RequestParam int founded, @RequestParam List<Long> genreIds, @RequestParam String mode) {
 
         mode = mode.toLowerCase();
-
+        System.out.println(genreIds.toString());
         if (mode.equals("new")) {
-            artistService.createArtist(name, founded, genreId);
+            artistService.createArtist(name, founded, genreIds);
         } else if (mode.equals("edit")) {
-            artistService.updateArtist(artistId,name,founded,genreId);
+            artistService.updateArtist(artistId,name,founded,genreIds);
         }
         return "redirect:/artists";
 

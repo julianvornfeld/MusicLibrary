@@ -1,6 +1,7 @@
 package de.adesso.musiclibrary.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Artist {
@@ -11,13 +12,13 @@ public class Artist {
     private String name;
     private int founded;
 
-    @ManyToOne
-    private Genre genre;
+    @ManyToMany
+    private List<Genre> genre;
 
     protected Artist() {
     }
 
-    public Artist(String name, int founded, Genre genre) {
+    public Artist(String name, int founded, List<Genre> genre) {
         this.name = name;
         this.founded = founded;
         this.genre = genre;
@@ -43,11 +44,29 @@ public class Artist {
         this.founded = founded;
     }
 
-    public Genre getGenre() {
+    public List<Genre> getGenre() {
         return genre;
     }
 
-    public void setGenre(Genre genre) {
+    public String getGenreString() {
+        StringBuilder genreString = new StringBuilder();
+
+        genre.stream().forEach(genre -> {
+            genreString.append(genre.getName() + ", ");
+        });
+
+        return genreString.toString().trim();
+    }
+
+    public boolean isGenreInArtist(Genre genreToCheck) {
+        if (genre == null) {
+            return false;
+        } else {
+            return genre.contains(genreToCheck);
+        }
+    }
+
+    public void setGenre(List<Genre> genre) {
         this.genre = genre;
     }
 

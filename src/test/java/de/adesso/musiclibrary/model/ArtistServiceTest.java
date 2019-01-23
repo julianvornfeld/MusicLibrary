@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -29,10 +30,16 @@ public class ArtistServiceTest {
 
     @Before
     public void setUp() throws Exception {
-        genreRepository.save(new Genre("Alternative Rock"));
-        List<Genre> genres = genreRepository.findByName("Alternative Rock");
+        Genre grungePost = new Genre("Post-Grunge");
+        Genre rockHard = new Genre("Hard Rock");
+        Genre rockAlternative = new Genre("Alternative Rock");
 
-        artistService.createArtist("Foo Fighters", 1994,genres.get(0).getId());
+        genreRepository.save(grungePost);
+        genreRepository.save(rockHard);
+        genreRepository.save(rockAlternative);
+
+        List<Long> genre = Arrays.asList(rockAlternative.getId(), grungePost.getId(), rockHard.getId());
+        artistService.createArtist("Foo Fighters", 1994, genre);
     }
 
     @Test
@@ -42,7 +49,7 @@ public class ArtistServiceTest {
 
         Artist artist = artists.get(0);
         Assert.assertEquals(artist.getName(), "Foo Fighters");
-        Assert.assertEquals(artist.getGenre().getName(), "Alternative Rock");
+        Assert.assertEquals(artist.getGenre().get(0).getName(), "Alternative Rock");
     }
 
     public static class TestConfiguration{

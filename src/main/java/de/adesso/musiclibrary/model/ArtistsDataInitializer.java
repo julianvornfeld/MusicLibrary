@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
+import java.util.*;
 
 @Component
 public class ArtistsDataInitializer implements ApplicationRunner {
@@ -19,18 +19,25 @@ public class ArtistsDataInitializer implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
+        Genre britpop = new Genre("Britpop");
+        Genre grungePost = new Genre("Post-Grunge");
+        Genre rock = new Genre("Rock");
+        Genre rockHard = new Genre("Hard Rock");
+        Genre rockIndie = new Genre("Indie Rock");
+        Genre rockAlternative = new Genre("Alternative Rock");
 
-        genreRepository.save(new Genre("Rock"));
-        genreRepository.save(new Genre("Grunge"));
+        genreRepository.save(britpop);
+        genreRepository.save(grungePost);
+        genreRepository.save(rock);
+        genreRepository.save(rockHard);
+        genreRepository.save(rockIndie);
+        genreRepository.save(rockAlternative);
 
-        genreRepository.save(new Genre("Alternative Rock"));
-        List<Genre> rockAlternative = genreRepository.findByName("Alternative Rock");
-
-        artistService.createArtist("U2", 1976, rockAlternative.get(0).getId());
-        artistService.createArtist("R.E.M.", 1980, rockAlternative.get(0).getId());
-        artistService.createArtist("Oasis", 1991, rockAlternative.get(0).getId());
-        artistService.createArtist("Foo Fighters", 1994, rockAlternative.get(0).getId());
-        artistService.createArtist("Snow Patrol", 1994, rockAlternative.get(0).getId());
+        artistService.createArtist("U2", 1976, Arrays.asList(rock.getId(),rockAlternative.getId()) );
+        artistService.createArtist("R.E.M.", 1980, Arrays.asList(rockAlternative.getId()));
+        artistService.createArtist("Oasis", 1991, Arrays.asList(britpop.getId(),rockAlternative.getId()));
+        artistService.createArtist("Foo Fighters", 1994, Arrays.asList(rockAlternative.getId(), grungePost.getId(), rockHard.getId()));
+        artistService.createArtist("Snow Patrol", 1994,  Arrays.asList(rockAlternative.getId(), britpop.getId(), rockIndie.getId()));
     }
 
 

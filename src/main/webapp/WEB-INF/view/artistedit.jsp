@@ -12,7 +12,9 @@
     <title>${mode} Artist ${artist.name}</title>
 </head>
 <body>
-<form action="/artists/edit" method="POST">
+
+<form action="/artists/edit" class="js-example-basic-multiple" method="POST">
+    <br>
     <input type="hidden" name="mode" value="${mode}">
     <input type="hidden" name="artistId" value="${artist.id}">
     Name:<br>
@@ -20,13 +22,19 @@
     Founded:<br>
     <input type="text" name="founded" value="${artist.founded}"><br>
     Genre:<br>
-    <select name="genreId" >
-        <c:forEach items="${genres}" var ="genres">
-            <option value="${genres.id}" ${(genres.id==artist.genre.id)?"selected":""}  >${genres.name}</option>
-        </c:forEach>
-    </select>
+    <c:forEach items="${genres}" var ="genre">
+        <label for="${genre.name}">
+            <input type="checkbox" name="genreIds" value="${genre.id}" ${(artist.isGenreInArtist(genre))?"checked":""}/>${genre.name}</label>
+        <br>
+    </c:forEach>
+    <%--<select name="genreId" multiple>--%>
+        <%--<c:forEach items="${genres}" var ="genres">--%>
+            <%--<option value="${genres.id}" ${(genres.id==artist.genre.id)?"selected":""}  >${genres.name}</option>--%>
+        <%--</c:forEach>--%>
+    <%--</select>--%>
     <br><br>
     <input type="submit" value="Submit">
 </form>
+
 </body>
 </html>

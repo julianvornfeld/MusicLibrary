@@ -20,9 +20,9 @@
         <tr>
             <th>Name</th>
         </tr>
-        <c:forEach  items="${genres}" var ="genres">
+        <c:forEach  items="${genres}" var ="genre">
             <tr>
-                <td><a href="/genres/${genres.id}">${genres.name}</a></td>
+                <td><a href="/genres/${genre.id}">${genre.name}</a></td>
             </tr>
         </c:forEach>
     </table>
