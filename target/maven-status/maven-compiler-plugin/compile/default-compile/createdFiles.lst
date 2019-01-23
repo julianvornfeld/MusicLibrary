@@ -1,0 +1,7 @@
+de\adesso\musiclibrary\model\ArtistRepository.class
+de\adesso\musiclibrary\model\Genre.class
+de\adesso\musiclibrary\controller\ArtistsController.class
+de\adesso\musiclibrary\model\GenreRepository.class
+de\adesso\musiclibrary\model\ArtistService.class
+de\adesso\musiclibrary\model\Artist.class
+de\adesso\musiclibrary\MusiclibraryApplication.class
