@@ -37,9 +37,10 @@ public class AlbumController {
     }
 
     @RequestMapping(value = { "/albums/new" }, method = RequestMethod.GET)
-    public String getCreateAlbum(Model model) {
+    public String getCreateAlbum(@RequestParam Long ArtistId, Model model) {
         Iterable<Artist> artists = artistRepository.findAll();
         model.addAttribute("artists", artists);
+        model.addAttribute("ArtistId", ArtistId);
         model.addAttribute("mode", "New");
 
         return "albumedit";
@@ -75,16 +76,23 @@ public class AlbumController {
     public String GetFilterAlbum(Model model, @RequestParam Long artistId) {
 
         Iterable<Artist> artists = artistRepository.findAll();
+        Iterable<Album> albums = null;
+        if (artistId >= 0) {
+            Artist artist = StreamSupport.stream(artists.spliterator(), false)
+                    .filter(artist1 -> artist1.getId().equals(artistId))
+                    .findFirst().get();
 
-        Artist artist = StreamSupport.stream(artists.spliterator(), false)
-                .filter(artist1 -> artist1.getId().equals(artistId))
-                .findFirst().get();
+            albums = albumRepository.findByArtist(artist);
 
-        Iterable<Album> albums = albumRepository.findByArtist(artist);
+            model.addAttribute("ArtistId", artist.getId());
+            model.addAttribute("ArtistName", artist.getName());
+        } else if (artistId == -1){
+
+            albums = albumRepository.findAll();
+        }
 
         model.addAttribute("artists", artists);
         model.addAttribute("albums", albums);
-        model.addAttribute("filter", artistId);
 
         return "albums";
     }

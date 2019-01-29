@@ -4,28 +4,28 @@
 <head>
     <%@ include file="menu.jsp" %>
     <meta charset="UTF-8">
-    <title>Albums</title>
+    <title>Albums of ${ArtistName}</title>
 </head>
 <body>
 <h1>Album List</h1>
 
 <br/><br/>
 <div>
-    <form action="/albums/filter" class="js-example-basic-multiple" method="GET">
+    <form action="/albums/filter" class="js-example-basic-multiple" method="GET" id="filter-form">
         Artist:<br>
-        <select name="artistId">
+        <select name="artistId" onchange="startFilter();">
+            <option value="-1">All</option>
             <c:forEach items="${artists}" var ="artist">
-                <option value="${artist.id}" ${(album.artist.name==artist.name)?"selected":""}>${artist.name}</option>
+                <option value="${artist.id}" ${(ArtistId==artist.id)?"selected":""}>${artist.name}</option>
             </c:forEach>
         </select>
-        <input type="submit" value="Filter Albums" />
     </form>
     <br><br>
     <table border="1">
         <tr>
             <th>Name</th>
             <th>Released</th>
-            <c:if test="${filter==null}">
+            <c:if test="${ArtistId==null}">
             <th>Artist</th>
             </c:if>
         </tr>
@@ -33,7 +33,7 @@
             <tr>
                 <td> <a href="/albums/${album.id}">${album.name}</a></td>
                 <td>${album.released}</td>
-                <c:if test="${filter==null}">
+                <c:if test="${ArtistId==null}">
                     <td><a href="/artists/${album.artist.id}">${album.artist.name}</a></td>
                 </c:if>
             </tr>
@@ -41,8 +41,14 @@
     </table>
     <br>
     <form action="/albums/new">
+        <input type="hidden" name="ArtistId" value="${ArtistId}">
         <input type="submit" value="create Album" />
     </form>
 </div>
+<script>
+    function startFilter() {
+        document.getElementById("filter-form").submit();
+    }
+</script>
 </body>
 </html>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="1" author="julian.vornfeld">
+        <createSequence catalogName="hibernate_sequence"
+                        cycle="true"
+                        incrementBy="1"
+                        maxValue="100000"
+                        minValue="1"
+                        ordered="true"
+                        schemaName="public"
+                        sequenceName="hibernate_sequence"
+                        startValue="1"/>
+    </changeSet>
+    <changeSet id="2" author="julian.vornfeld">
+        <createTable tableName="album">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)"/>
+            <column name="released " type="date"/>
+            <column name="artist_id" type="bigint"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="3" author="julian.vornfeld">
+        <createTable tableName="artist">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)"/>
+            <column name="founded" type="bigint"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="4" author="julian.vornfeld">
+        <createTable tableName="artist_genre">
+            <column name="artist_id" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="genre_id" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="5" author="julian.vornfeld">
+        <createTable tableName="genre">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="6" author="julian.vornfeld">
+        <createTable tableName="track">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)"/>
+            <column name="nr" type="bigint"/>
+            <column name="album_id" type="bigint"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="7" author="julian.vornfeld">
+        <createTable tableName="track_artists">
+            <column name="track_id" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="artists_id" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="8" author="julian.vornfeld">
+        <insert catalogName="hibernate_sequence"
+                tableName="genre">
+            <column name="id" valueComputed="hibernate_sequence.nextval"/>
+            <column name="name" value="Rock"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

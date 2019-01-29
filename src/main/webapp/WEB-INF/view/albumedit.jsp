@@ -27,7 +27,7 @@
     Artist:<br>
     <select name="artistId">
         <c:forEach items="${artists}" var ="artist">
-            <option value="${artist.id}" ${(album.artist.name==artist.name)?"selected":""}>${artist.name}</option>
+            <option value="${artist.id}" ${(album.artist.name==artist.name||ArtistId==artist.id)?"selected":""}>${artist.name}</option>
         </c:forEach>
     </select>
     <br><br>

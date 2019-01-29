@@ -10,4 +10,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <a href="/artists">Artists</a>
 <a href="/albums">Albums</a>
+<a href="/tracks">Tracks</a>
 <a href="/genres">Genres</a>

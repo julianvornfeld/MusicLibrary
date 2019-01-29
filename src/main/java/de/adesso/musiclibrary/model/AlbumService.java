@@ -19,9 +19,10 @@ public class AlbumService {
         return artistRepository.findById(artistId).get();
     }
 
-    public void createAlbum (String name, LocalDate released, Long artistId) {
+    public Album createAlbum (String name, LocalDate released, Long artistId) {
         Album album = new Album(name, released, getArtistFromId(artistId));
         albumRepository.save(album);
+        return album;
     }
 
     public void updateArtist (Long albumId, String name, LocalDate released, Long artistId) {

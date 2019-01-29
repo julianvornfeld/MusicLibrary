@@ -4,7 +4,7 @@
 <head>
     <%@ include file="menu.jsp" %>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>Artist List</title>
 </head>
 <body>
 <h1>Artist List</h1>
