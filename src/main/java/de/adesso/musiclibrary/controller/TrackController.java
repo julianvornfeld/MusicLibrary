@@ -39,6 +39,7 @@ public class TrackController {
         model.addAttribute("tracks", tracks);
         model.addAttribute("albums", albums);
 
+        model.addAttribute("activepage", "tracks");
         return "tracks";
     }
 
@@ -47,6 +48,7 @@ public class TrackController {
 
         prepareTrackModel(model, albumId);
 
+        model.addAttribute("activepage", "tracks");
         return "trackedit";
     }
 
@@ -57,6 +59,7 @@ public class TrackController {
 
         prepareTrackModel(model, albumId);
 
+        model.addAttribute("activepage", "tracks");
         return "trackedit";
     }
 
@@ -68,6 +71,7 @@ public class TrackController {
 
         prepareTrackModel(model, albumId);
 
+        model.addAttribute("activepage", "tracks");
         return "trackedit";
     }
 }

@@ -28,6 +28,7 @@ public class ArtistsController {
         Iterable<Artist> artists = artistRepository.findAll();
         model.addAttribute("artists", artists);
 
+        model.addAttribute("activepage", "artists");
         return "artists";
     }
 
@@ -37,6 +38,7 @@ public class ArtistsController {
         model.addAttribute("genres", genres);
         model.addAttribute("mode", "New");
 
+        model.addAttribute("activepage", "artists");
         return "artistedit";
     }
 
@@ -49,6 +51,7 @@ public class ArtistsController {
         model.addAttribute("genres", genres);
         model.addAttribute("mode", "Edit");
 
+        model.addAttribute("activepage", "artists");
         return "artistedit";
     }
 
@@ -61,6 +64,8 @@ public class ArtistsController {
         } else if (mode.equals("edit")) {
             artistService.updateArtist(artistId,name,founded,genreIds);
         }
+
+        model.addAttribute("activepage", "artists");
         return "redirect:/artists";
 
     }

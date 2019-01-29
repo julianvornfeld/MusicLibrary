@@ -22,6 +22,7 @@ public class GenreController {
         Iterable<Genre> genres = genreRepository.findAll();
         model.addAttribute("genres", genres);
 
+        model.addAttribute("activepage", "genres");
         return "genres";
     }
 
@@ -29,6 +30,7 @@ public class GenreController {
     public String getCreateArtist(Model model) {
         model.addAttribute("mode", "New");
 
+        model.addAttribute("activepage", "genres");
         return "genreedit";
     }
 
@@ -38,6 +40,7 @@ public class GenreController {
         model.addAttribute("genre", genres.get());
         model.addAttribute("mode", "Edit");
 
+        model.addAttribute("activepage", "genres");
         return "genreedit";
     }
 
@@ -53,6 +56,7 @@ public class GenreController {
             genreRepository.save(genres.get());
         }
 
+        model.addAttribute("activepage", "genres");
         return "redirect:/genres";
     }
 

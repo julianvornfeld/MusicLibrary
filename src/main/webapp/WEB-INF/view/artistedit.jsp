@@ -23,7 +23,7 @@
     Name:<br>
     <input type="text" name="name" value="${artist.name}"><br>
     Founded:<br>
-    <input type="text" name="founded" value="${artist.founded}"><br>
+    <input type="number" name="founded" value="${artist.founded}"><br>
     Genre:<br>
     <c:forEach items="${genres}" var ="genre">
         <label for="${genre.name}">
@@ -36,7 +36,7 @@
         <%--</c:forEach>--%>
     <%--</select>--%>
     <br><br>
-    <input type="submit" value="Submit">
+    <input class="button-normal" type="submit" value="Submit">
 </form>
 
 </body>

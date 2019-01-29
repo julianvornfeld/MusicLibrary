@@ -1,0 +1,38 @@
+.button-normal {
+    background-color: #4286f4;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.button-edit {
+    background:url(/images/edit-button.png) no-repeat ;
+    background-size: 100% 100%;
+    cursor:pointer;
+    width: 20px;
+    height: 20px;
+    border: none;
+}
+.button-delete {
+    background-color: #f44242;
+    cursor:pointer;
+    border: none;
+    color: white;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+.button-add {
+    background-color: #4CAF50;
+    cursor:pointer;
+    border: none;
+    color: white;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}

@@ -16,19 +16,19 @@
 
 <br/><br/>
 <div>
-    <table border="1">
+    <table border="1" id="fancytable">
         <tr>
             <th>Name</th>
         </tr>
         <c:forEach  items="${genres}" var ="genre">
             <tr>
-                <td><a href="/genres/${genre.id}">${genre.name}</a></td>
+                <td><a class="table-link" href="/genres/${genre.id}">${genre.name}</a></td>
             </tr>
         </c:forEach>
     </table>
     <br>
     <form action="/genres/new">
-        <input type="submit" value="create Genre" />
+        <input class="button-normal" type="submit" value="create Genre" />
     </form>
 </div>
 </body>

@@ -21,7 +21,7 @@
         </select>
     </form>
     <br><br>
-    <table border="1">
+    <table border="1" id="fancytable">
         <tr>
             <th>Name</th>
             <th>Released</th>
@@ -31,10 +31,10 @@
         </tr>
         <c:forEach  items="${albums}" var ="album" >
             <tr>
-                <td> <a href="/albums/${album.id}">${album.name}</a></td>
+                <td> <a class="table-link" href="/albums/${album.id}">${album.name}</a></td>
                 <td>${album.released}</td>
                 <c:if test="${ArtistId==null}">
-                    <td><a href="/artists/${album.artist.id}">${album.artist.name}</a></td>
+                    <td><a class="table-link" href="/artists/${album.artist.id}">${album.artist.name}</a></td>
                 </c:if>
             </tr>
         </c:forEach>
@@ -42,7 +42,7 @@
     <br>
     <form action="/albums/new">
         <input type="hidden" name="ArtistId" value="${ArtistId}">
-        <input type="submit" value="create Album" />
+        <input class="button-normal" type="submit" value="create Album" />
     </form>
 </div>
 <script>

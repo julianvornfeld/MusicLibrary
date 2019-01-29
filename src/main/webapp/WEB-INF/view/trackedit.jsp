@@ -12,7 +12,7 @@
 <h1>${album.name} - ${album.artist.name}</h1>
 <br/>
 <div>
-    <table border="1">
+    <table border="1" id="fancytable">
         <tr>
             <th>Nr</th>
             <th>Name</th>
@@ -28,7 +28,7 @@
                         (featuring:
 
                         <c:forEach  items="${track.artists}" var ="trackartists">
-                            <a href="/artists/${trackartists.id}">${trackartists.name}</a>
+                            <a class="table-link" href="/artists/${trackartists.id}">${trackartists.name}</a>
                         </c:forEach>
                         )
                     </c:if>
@@ -37,7 +37,7 @@
                 <form action="/tracks/delete/${album.id}" method="POST">
                     <input type="hidden" name="albumId" value="${album.id}">
                     <input type="hidden" name="trackId" value="${track.id}">
-                    <td><input type="submit" value="-" /></td>
+                    <td><input class="button-delete" type="submit" value="-" /></td>
                 </form>
             </tr>
             </c:if>
@@ -46,7 +46,7 @@
             <input type="hidden" name="albumId" value="${album.id}">
             <input type="hidden" name="nr" value="${nextTrackNr}">
             <td>${nextTrackNr}</td>
-            <td><input type="text" name="name" id="name" value="${artist.name}"><input type="submit" value="+" /></td>
+            <td><input type="text" name="name" id="name" value="${artist.name}"><input class="button-add" type="submit" value="+" /></td>
 
         </form>
     </table>

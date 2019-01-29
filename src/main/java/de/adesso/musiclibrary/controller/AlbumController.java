@@ -33,6 +33,7 @@ public class AlbumController {
         model.addAttribute("artists", artists);
         model.addAttribute("albums", albums);
 
+        model.addAttribute("activepage", "albums");
         return "albums";
     }
 
@@ -43,6 +44,7 @@ public class AlbumController {
         model.addAttribute("ArtistId", ArtistId);
         model.addAttribute("mode", "New");
 
+        model.addAttribute("activepage", "albums");
         return "albumedit";
     }
 
@@ -55,6 +57,7 @@ public class AlbumController {
         model.addAttribute("artists", artists);
         model.addAttribute("mode", "Edit");
 
+        model.addAttribute("activepage", "albums");
         return "albumedit";
     }
 
@@ -69,6 +72,7 @@ public class AlbumController {
         } else if (mode.equals("edit")) {
             albumService.updateArtist(albumId, name, releasedLocalDate, artistId);
         }
+        model.addAttribute("activepage", "albums");
         return "redirect:/albums";
 
     }
@@ -94,6 +98,7 @@ public class AlbumController {
         model.addAttribute("artists", artists);
         model.addAttribute("albums", albums);
 
+        model.addAttribute("activepage", "albums");
         return "albums";
     }
 

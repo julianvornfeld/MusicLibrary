@@ -1,0 +1,14 @@
+a:link.table-link, a:visited.table-link {
+    /*background-color: white;*/
+    color: black;
+    /*border: 2px solid green;*/
+    padding: 1px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+a:hover.table-link, a:active.table-link {
+    background-color: #2377ff;
+    color: white;
+}

@@ -31,7 +31,7 @@
         </c:forEach>
     </select>
     <br><br>
-    <input type="submit" value="Submit">
+    <input class="button-normal" type="submit" value="Submit">
 </form>
 
 </body>

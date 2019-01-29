@@ -14,12 +14,12 @@
     <form action="/tracks/edit/${album.id}" method="POST">
         <input type="hidden" name="albumId" value="${album.id}">
         <h2>${album.name} - ${album.artist.name}
-        <input type="submit" value="edit" />
+        <input class="button-edit" type="submit" value="" />
         </h2>
     </form>
     <br/>
     <div>
-        <table border="1">
+        <table border="1" id="fancytable">
             <tr>
                 <th>Nr</th>
                 <th>Name</th>
@@ -36,7 +36,7 @@
                             (featuring:
 
                             <c:forEach  items="${track.artists}" var ="trackartists">
-                                <a href="/artists/${trackartists.id}">${trackartists.name}</a>
+                                <a class="table-link" href="/artists/${trackartists.id}">${trackartists.name}</a>
                             </c:forEach>
                             )
                         </c:if>

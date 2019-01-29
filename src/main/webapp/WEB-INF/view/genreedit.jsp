@@ -21,7 +21,7 @@
     Name:<br>
     <input type="text" name="name" value="${genre.name}"><br>
     <br><br>
-    <input type="submit" value="Submit">
+    <input class="button-normal" type="submit" value="Submit">
 </form>
 </body>
 </html>
