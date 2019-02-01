@@ -19,7 +19,3 @@
     <li><a class="${(activepage=="tracks")?"active":""}" href="/tracks">Tracks</a></li>
     <li><a class="${(activepage=="genres")?"active":""}" href="/genres">Genres</a></li>
 </ul>
-<%--<a href="/artists">Artists</a>--%>
-<%--<a href="/albums">Albums</a>--%>
-<%--<a href="/tracks">Tracks</a>--%>
-<%--<a href="/genres">Genres</a>--%>

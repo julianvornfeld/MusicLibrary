@@ -79,4 +79,11 @@ public class Track {
         }
     }
 
+    public boolean isCoArtist(Artist artist) {
+        if (artist == null) {
+            return false;
+        } else {
+            return this.artists.contains(artist);
+        }
+    }
 }

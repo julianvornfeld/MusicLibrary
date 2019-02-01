@@ -22,7 +22,7 @@
             <c:if test="${track.album.id==album.id}">
             <tr>
                 <td>${track.nr}.</td>
-                <td>${track.name}
+                <td><a class="table-link" href="/tracks/editdetail/${track.id}"  method="GET">${track.name}</a>
 
                     <c:if test="${track.getArtistString()!=''}">
                         (featuring:

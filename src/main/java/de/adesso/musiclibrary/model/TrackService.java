@@ -3,12 +3,10 @@ package de.adesso.musiclibrary.model;
 import com.fasterxml.jackson.databind.util.ArrayBuilders;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.nio.IntBuffer;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 @Component
 public class TrackService {
@@ -49,11 +47,22 @@ public class TrackService {
         return track;
     }
 
+    public Track updateTrack (Long trackId, int nr, String name, List<Long> artistIds) {
+
+        Track track = trackRepository.findById(trackId).get();
+        track.setNr(nr);
+        track.setName(name);
+        track.setArtists(getArtistListFromIds(artistIds));
+
+        trackRepository.save(track);
+
+        return track;
+    }
+
     public void createMultipleTracks (List<String> names, Long albumId) {
 
         int nr = 1;
         Album album = getAlbumFromId(albumId);
-        //List<Artist> artists =  Arrays.asList(album.getArtist());
 
         for (int i = 0; i < names.size(); i++) {
             Track track = new Track(nr, names.get(i), null, album);
@@ -64,7 +73,7 @@ public class TrackService {
     }
 
     public void renumber (Long albumId) {
-        List<Track> tracks = trackRepository.findByAlbum_Id(albumId);
+        List<Track> tracks = trackRepository.findByAlbum_IdOrderByNr(albumId);
 
         tracks.sort(Comparator.comparingDouble(Track::getNr));
 

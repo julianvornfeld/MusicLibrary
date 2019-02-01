@@ -11,7 +11,7 @@
 
 <br/><br/>
 <c:forEach  items="${albums}" var ="album">
-    <form action="/tracks/edit/${album.id}" method="POST">
+        <form action="/tracks/edit/${album.id}" method="POST">
         <input type="hidden" name="albumId" value="${album.id}">
         <h2>${album.name} - ${album.artist.name}
         <input class="button-edit" type="submit" value="" />

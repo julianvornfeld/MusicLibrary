@@ -30,11 +30,6 @@
             <input type="checkbox" name="genreIds" value="${genre.id}" ${(artist.isGenreInArtist(genre))?"checked":""}/>${genre.name}</label>
         <br>
     </c:forEach>
-    <%--<select name="genreId" multiple>--%>
-        <%--<c:forEach items="${genres}" var ="genres">--%>
-            <%--<option value="${genres.id}" ${(genres.id==artist.genre.id)?"selected":""}  >${genres.name}</option>--%>
-        <%--</c:forEach>--%>
-    <%--</select>--%>
     <br><br>
     <input class="button-normal" type="submit" value="Submit">
 </form>
