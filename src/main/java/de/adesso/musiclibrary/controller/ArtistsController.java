@@ -25,7 +25,7 @@ public class ArtistsController {
 
     @RequestMapping(value = { "/artists" }, method = RequestMethod.GET)
     public String viewPersonList(Model model) {
-        Iterable<Artist> artists = artistRepository.findAll();
+        Iterable<Artist> artists = artistRepository.findAllOrderByName();
         model.addAttribute("artists", artists);
 
         model.addAttribute("activepage", "artists");
@@ -34,7 +34,7 @@ public class ArtistsController {
 
     @RequestMapping(value = { "/artists/new" }, method = RequestMethod.GET)
     public String getCreateArtist(Model model) {
-        Iterable<Genre> genres = genreRepository.findAll();
+        Iterable<Genre> genres = genreRepository.findAllOrderByName();
         model.addAttribute("genres", genres);
         model.addAttribute("mode", "New");
 
@@ -45,7 +45,7 @@ public class ArtistsController {
     @RequestMapping(value = "/artists/{id}", method = RequestMethod.GET)
     public String getEditAlbum(@PathVariable("id") Long id, Model model){
         Optional<Artist> artist = artistRepository.findById(id);
-        Iterable<Genre> genres = genreRepository.findAll();
+        Iterable<Genre> genres = genreRepository.findAllOrderByName();
 
         model.addAttribute("artist", artist.get());
         model.addAttribute("genres", genres);

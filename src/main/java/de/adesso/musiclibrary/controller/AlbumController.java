@@ -28,7 +28,7 @@ public class AlbumController {
     @RequestMapping(value = { "/albums" }, method = RequestMethod.GET)
     public String viewPersonList(Model model) {
         Iterable<Artist> artists = artistRepository.findAll();
-        Iterable<Album> albums = albumRepository.findAll();
+        Iterable<Album> albums = albumRepository.findAllOrderByNr();
 
         model.addAttribute("artists", artists);
         model.addAttribute("albums", albums);
@@ -86,7 +86,7 @@ public class AlbumController {
                     .filter(artist1 -> artist1.getId().equals(artistId))
                     .findFirst().get();
 
-            albums = albumRepository.findByArtist(artist);
+            albums = albumRepository.findByArtistOrderByReleased(artist);
 
             model.addAttribute("ArtistId", artist.getId());
             model.addAttribute("ArtistName", artist.getName());

@@ -19,7 +19,7 @@ public class GenreController {
 
     @RequestMapping(value = { "/genres" }, method = RequestMethod.GET)
     public String viewPersonList(Model model) {
-        Iterable<Genre> genres = genreRepository.findAll();
+        Iterable<Genre> genres = genreRepository.findAllOrderByName();
         model.addAttribute("genres", genres);
 
         model.addAttribute("activepage", "genres");
