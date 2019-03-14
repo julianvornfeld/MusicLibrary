@@ -1,0 +1,14 @@
+
+Tsquid:UselessImportCheck"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ
+csquid:S1192""GDefine a constant instead of duplicating this literal "albums" 9 times.(Œ×êÿÿÿÿÿ
+fsquid:S00100P"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(™´Ã
+gsquid:S1192$"KDefine a constant instead of duplicating this literal "activepage" 5 times.(ÎŞ»¿úÿÿÿÿ
+_squid:S4488O"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(Üòµœ
+Ksquid:S36558"4Call "album.isPresent()" before accessing the value.(Ôß–×
+_squid:S4488("HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(‰½ìÕ
+isquid:S00117)"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Í²‡
+dsquid:S44883"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(‚Î÷¤ûÿÿÿÿ
+dsquid:S1192!"HDefine a constant instead of duplicating this literal "artists" 4 times.(¤ŸÏşùÿÿÿÿ
+asquid:S4488@"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(›™ß‡
+^squid:S4488"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(¬î½U
+Ssquid:S3655U"7Call "Optional#isPresent()" before accessing the value.(òÈŠÿÿÿÿÿ

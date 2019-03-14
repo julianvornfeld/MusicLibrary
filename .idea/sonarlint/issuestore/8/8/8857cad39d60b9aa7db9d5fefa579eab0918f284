@@ -1,0 +1,8 @@
+
+_squid:S4488"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(äÓŸ
+dsquid:S1192"HDefine a constant instead of duplicating this literal "artists" 6 times.(¤ŸÏşùÿÿÿÿ
+Lsquid:S36552"5Call "artist.isPresent()" before accessing the value.(ùºÕâ
+fsquid:S4488:"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(§Ãèüÿÿÿÿ
+gsquid:S1192"KDefine a constant instead of duplicating this literal "activepage" 4 times.(ŠïÕŸøÿÿÿÿ
+_squid:S4488#"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(Ñ¢˜Ê
+dsquid:S4488-"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ˆÜŞøÿÿÿÿ

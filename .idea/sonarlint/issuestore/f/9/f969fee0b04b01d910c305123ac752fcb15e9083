@@ -1,0 +1,12 @@
+
+_squid:S4488("HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ºéäÖ
+fsquid:S44883"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(çúÐßþÿÿÿÿ
+dsquid:S4488<"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(¯ÿ¯¢øÿÿÿÿ
+asquid:S4488I"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(±˜ð£
+asquid:S4488T"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(èÈÌ×
+asquid:S4488_"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(­à±š
+bsquid:S1192/"KDefine a constant instead of duplicating this literal "activepage" 6 times.(°ßœä
+fsquid:S11929"JDefine a constant instead of duplicating this literal "trackedit" 4 times.(§Šþ‘þÿÿÿÿ
+csquid:S1192""GDefine a constant instead of duplicating this literal "tracks" 9 times.(¤ç´µüÿÿÿÿ
+Psquid:S3655B"4Call "track.isPresent()" before accessing the value.(¼Ñ“åûÿÿÿÿ
+Ksquid:S3655!"4Call "album.isPresent()" before accessing the value.(Ôß–×

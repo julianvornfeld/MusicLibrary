@@ -1,0 +1,9 @@
+
+_squid:S4488"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(›¯ğ¯
+_squid:S4488"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ÕÄ
+dsquid:S4488%"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(†É†©şÿÿÿÿ
+asquid:S4488/"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(àÉº¹
+^squid:S1192"GDefine a constant instead of duplicating this literal "genres" 6 times.(­şß
+gsquid:S1192"KDefine a constant instead of duplicating this literal "activepage" 4 times.(Éû¨æüÿÿÿÿ
+Qsquid:S36557"5Call "genres.isPresent()" before accessing the value.(´Í½Şúÿÿÿÿ
+Ksquid:S3655("5Call "genres.isPresent()" before accessing the value.(£ŒY

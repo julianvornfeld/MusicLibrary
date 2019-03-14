@@ -1,0 +1,5 @@
+
+?squid:S1481."(Remove this unused "rem" local variable.( Â≥“
+Nsquid:S1854."7Remove this useless assignment to local variable "rem".( Â≥“
+nsquid:UselessImportCheck"JRemove this unused import 'org.springframework.context.annotation.Import'.(ûà»Ë
+lsquid:UselessImportCheck"HRemove this unused import 'org.springframework.context.annotation.Bean'.(ÇÓâﬁ
